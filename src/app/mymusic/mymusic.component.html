@@ -1,0 +1,19 @@
+<div>
+  <h1>My music app</h1>
+
+  <ul>
+    <li *ngFor="let item of mymusicService.playlist">
+      <a *ngIf="item.id != song.id" style="cursor: pointer" (click)="setSong(item.id,item.song)">{{item.song}}</a>
+      <a *ngIf="item.id == song.id" style="color: blue; cursor: pointer">{{item.song}}</a>
+    </li>
+  </ul>
+
+  <div *ngIf="song.name!==''; else tmpl">
+    <h3>Song name: {{song.name}}</h3>
+    <iframe *ngIf="url" width="560" height="315" [src]="url" frameborder="0" allow="autoplay" allowfullscreen></iframe>
+  </div>
+
+  <ng-template #tmpl>
+    <h2>Nothing to play</h2>
+  </ng-template>
+</div>
