@@ -20,7 +20,9 @@ export class LiveTimeService {
   getDiffToNow(time: string | Date | number) {
     const result: string[] = [];
     const now = new Date();
+    now.toLocaleDateString('en-GB');
     time = new Date(time);
+    time.toLocaleDateString('en-GB');
     const years = differenceInYears(now, time);
     if (years > 0) {
       result.push(years + ' years');
