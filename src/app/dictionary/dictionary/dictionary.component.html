@@ -1,0 +1,15 @@
+<div>
+  <div class="col-12" style="height: 100%">
+    <label>
+      nhap tu can tim kiem:
+      <input placeholder="search" (keyup)="search($event.target.value)">
+    </label>
+    <br>
+    <ul *ngFor="let word of words; index as i">
+      <li>
+        {{i + 1}}:<a [routerLink]="[word.word]"> {{word.word}}</a>
+      </li>
+    </ul>
+  </div>
+</div>
+<router-outlet></router-outlet>
